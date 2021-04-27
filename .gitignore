@@ -59,7 +59,7 @@ typings/
 public
 
 #firbase configuration
-firbase.json
+firebase.json
 
 # Mac files
 .DS_Store
