@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+#firbase configuration
+firbase.json
+
 # Mac files
 .DS_Store
 
