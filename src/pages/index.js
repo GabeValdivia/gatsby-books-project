@@ -13,6 +13,9 @@ const IndexPage = (props) => {
         <div>
           {edge.node.summary}
         </div>
+        <Link to={`/book/${edge.node.id}`}>
+          Join conversation
+        </Link>
       </div>
     ))}
   </Layout>
