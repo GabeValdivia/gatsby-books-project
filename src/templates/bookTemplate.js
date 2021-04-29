@@ -1,10 +1,11 @@
 import React from 'react';
+import Layout from "../components/layout"
 
 const BookTemplate = () => {
     return(
-        <div>
+        <Layout>
           Book page  
-        </div>
+        </Layout>
     )
 
 }
