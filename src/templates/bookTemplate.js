@@ -1,16 +1,6 @@
 import React from 'react';
 import Layout from "../components/layout"
-import styled from "styled-components"
-
-const BookItem = styled.section`
-  border: 3px solid red;
-
-  h2{
-    small {
-      font-weight: normal;
-    }
-  }
-`;
+import BookItem from "../components/BookItem";
 
 const BookTemplate = (props) => {
     return(
