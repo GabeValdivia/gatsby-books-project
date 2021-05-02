@@ -5,12 +5,10 @@ import BookItem from "../components/BookItem";
 const BookTemplate = (props) => {
     return(
         <Layout>
-          <BookItem>
-            <h2>
-              {props.pageContext.title} - <small>{props.pageContext.author.name}</small>
-            </h2>
-             <p>{props.pageContext.summary}</p>
-          </BookItem>
+          <BookItem
+            authorName={props.pageContext.author.name}
+            bookSummary={props.pageContext.summary}
+            bookTitle={props.pageContext.title}/>
         </Layout>
     )
 
