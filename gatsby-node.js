@@ -5,27 +5,15 @@ exports.createPages = ({graphql, actions}) => {
     const bookTemplate = path.resolve('src/templates/bookTemplate.js');
 
     return graphql(`
-          query MyQuery {
+        query MyQuery {
             allBook {
                 edges {
-                node {
-                    title
-                    summary
-                    id
-                    localImage {
-                        childImageSharp{
-                            fixed(width:200){
-                                src
-                            }
-                        }
+                    node {
+                        id
                     }
-                    author {
-                    name
-                    }
-                }
                 }
             }
-          }
+        }
     `).then((result) => {
         if(result.errors){
             throw result.errors;
@@ -35,7 +23,7 @@ exports.createPages = ({graphql, actions}) => {
             createPage({
                 path: `/book/${book.node.id}`,
                 component: bookTemplate,
-                context: book.node
+                context: {bookId: book.node.id}
             })
         });
     })
