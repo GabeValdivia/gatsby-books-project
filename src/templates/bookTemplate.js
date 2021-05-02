@@ -6,7 +6,8 @@ const BookTemplate = (props) => {
     return(
         <Layout>
           <BookItem
-            authorName={props.pageContext.author.name}
+            bookCover={props.pageContext.imageUrl}
+            authorName={props.pageContext.author.name}            
             bookSummary={props.pageContext.summary}
             bookTitle={props.pageContext.title}/>
         </Layout>
