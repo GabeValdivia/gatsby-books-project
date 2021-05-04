@@ -60,7 +60,7 @@ public
 
 #firbase configuration
 firebase.json
-src/components/Firebase/config
+src/components/Firebase/config.js
 
 # Mac files
 .DS_Store
