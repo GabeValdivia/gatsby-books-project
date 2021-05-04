@@ -59,6 +59,7 @@ typings/
 public
 
 #firbase configuration
+firebase/
 firebase.json
 src/components/Firebase/config.js
 
