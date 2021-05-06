@@ -32,9 +32,10 @@ const Header = ({ siteTitle }) => {
           margin: `0 auto`,
           maxWidth: 960,
           padding: `1.45rem 1.0875rem`,
+          display: 'flex'
         }}
       >
-        <h1 style={{ margin: 0 }}>
+        <h1 style={{ margin: 0, flexGrow: 1 }}>
           <Link
             to="/"
             style={{
@@ -45,16 +46,23 @@ const Header = ({ siteTitle }) => {
             {siteTitle}
           </Link>
         </h1>
-        <div>
+        <div style={{margin: 'auto 0'}}>
           {!!user && !!user.email && 
             <div>
               Hello, {user.email}
-                <div>
+                <div style={{textAlign: 'right'}}>
                   <LogoutLink onClick={handleLogoutClick}>
                     Logout
                   </LogoutLink>
                 </div>
             </div>
+          }
+          {(!user || !user.email) &&
+          <div>
+            <Link to="/login">
+              Login
+            </Link>
+          </div>
           }
         </div>
       </div>
