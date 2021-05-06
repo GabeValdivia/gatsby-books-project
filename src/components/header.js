@@ -1,11 +1,24 @@
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import PropTypes from "prop-types";
 import React, {useContext} from "react";
 import {FirebaseContext} from "./Firebase";
+import styled from "styled-components";
+
+const LogoutLink = styled.span `
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 const Header = ({ siteTitle }) => {
   const {firebase, user} = useContext(FirebaseContext);
   console.log(firebase, user);
+
+  function handleLogoutClick() {
+    firebase.logout().then(() => navigate('/login'));
+  }
   
     return (
     <header
@@ -36,6 +49,11 @@ const Header = ({ siteTitle }) => {
           {!!user && !!user.email && 
             <div>
               Hello, {user.email}
+                <div>
+                  <LogoutLink onClick={handleLogoutClick}>
+                    Logout
+                  </LogoutLink>
+                </div>
             </div>
           }
         </div>
