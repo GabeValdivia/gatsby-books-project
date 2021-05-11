@@ -15,7 +15,37 @@ const LogoutLink = styled.span `
 const HeaderWrapper = styled.header `
   background: rebeccapurple;
   margin-bottom: 1.45rem;
-`
+`;
+
+const HeaderContent = styled.div `
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+  display: flex;
+  justify-content: space-between;
+
+  > h1 {
+    margin: 0;
+    flexGrow: 1;
+
+    >a {
+      color: white;
+      text-decoration: none;
+    }
+
+    
+  }
+  align-items: center;
+`;
+
+const UserInfo = styled.div `
+  color: white;
+  text-align: right;
+`;
+
+const LoginLink = styled.div `
+  a { color: white;}
+`;
 
 const Header = ({ siteTitle }) => {
   const {firebase, user} = useContext(FirebaseContext);
@@ -27,45 +57,34 @@ const Header = ({ siteTitle }) => {
   
     return (
     <HeaderWrapper>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
-          display: 'flex'
-        }}
-      >
-        <h1 style={{ margin: 0, flexGrow: 1 }}>
+      <HeaderContent >
+        <h1>
           <Link
             to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
           >
             {siteTitle}
           </Link>
         </h1>
-        <div style={{margin: 'auto 0'}}>
+        <div>
           {!!user && !!user.email && 
-            <div>
+            <UserInfo>
               Hello, {user.email}
-                <div style={{textAlign: 'right'}}>
+                <div>
                   <LogoutLink onClick={handleLogoutClick}>
                     Logout
                   </LogoutLink>
                 </div>
-            </div>
+            </UserInfo>
           }
           {(!user || !user.email) &&
-          <div>
+          <LoginLink>
             <Link to="/login">
               Login
             </Link>
-          </div>
+          </LoginLink>
           }
         </div>
-      </div>
+      </HeaderContent>
     </HeaderWrapper>
   )
 }
