@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Form, Input, Button } from '../components/common';
+import {FirebaseContext} from '../components/Firebase';
 
 
 const Register = () => {
+    const {firebase} = useContext(FirebaseContext);
 
-    const [fromValues, setFormValues] = useState({
+    const [formValues, setFormValues] = useState({
         email: '',
         password: '',
         confirmPassword: ''
@@ -21,13 +23,20 @@ const Register = () => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(fromValues);
+        if(formValues.password === formValues.confirmPassword){
+            firebase.register({
+                email: formValues.email,
+                password: formValues.password
+            })
+        }
+
+        console.log(formValues);
     }
     return(
         <Form onSubmit={handleSubmit}>
-            <Input onChange={handleInputChange} value={fromValues.email} placeholder="email" type="email" required name="email"/>
-            <Input onChange={handleInputChange} value={fromValues.password} placeholder="password" type="password" required minLength={3} name="password"/>
-            <Input onChange={handleInputChange} value={fromValues.confirmPassword} placeholder="confirm password" type="password" required minLength={3} name="confirmPassword"/>
+            <Input onChange={handleInputChange} value={formValues.email} placeholder="email" type="email" required name="email"/>
+            <Input onChange={handleInputChange} value={formValues.password} placeholder="password" type="password" required minLength={3} name="password"/>
+            <Input onChange={handleInputChange} value={formValues.confirmPassword} placeholder="confirm password" type="password" required minLength={3} name="confirmPassword"/>
             <Button type="submit" block>
                 Register
             </Button>

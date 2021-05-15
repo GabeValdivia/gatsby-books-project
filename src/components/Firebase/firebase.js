@@ -16,6 +16,10 @@ class Firebase {
             this.storage = app.storage();
         }
     }
+    
+    async register({email, password}) {
+        return this.auth.createUserWithEmailAndPassword(email, password);
+    }
 
     async login({ email, password }) {
         return this.auth.signInWithEmailAndPassword(email, password);
