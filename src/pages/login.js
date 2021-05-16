@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby"
 import {FirebaseContext} from "../components/Firebase";
-import {Form, Input, Button} from '../components/common';
+import {Form, Input, Button, ErrorMessage} from '../components/common';
 
 const Login = () => {
 
@@ -33,9 +33,9 @@ const Login = () => {
                 <Input required value={formValues.email } name="email" onChange={handleInputChange} placeholder="email" type="email" />
                 <Input required value={ formValues.password} name="password" onChange={handleInputChange} placeholder="password" type="password" />
                 {!!errorMessage &&
-                    <span>
+                    <ErrorMessage>
                         {errorMessage}
-                    </span>
+                    </ErrorMessage>
                 }
                 <Button type="submit" block>
                     Login
