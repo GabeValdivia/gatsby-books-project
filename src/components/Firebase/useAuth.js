@@ -19,8 +19,14 @@ function useAuth() {
                 if (userResult) {
                     firebaseInstance.getUserProfile({
                         userId: userResult.uid
-                    }).then(r => console.log(r))
-                    setUser(userResult);
+                    }).then(r => {
+                        console.log(r);
+                        setUser({
+                            ...userResult,
+                            username: r.empty ? null : r.docs[0].id
+                        });
+                    })
+                    
                     // get user custom claims
                     /*setLoading(true);
                     Promise.all([
