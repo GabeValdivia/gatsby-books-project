@@ -39,8 +39,8 @@ const Register = () => {
     return(
         <Form onSubmit={handleSubmit}>
             <Input onChange={handleInputChange} value={formValues.email} placeholder="email" type="email" required name="email"/>
-            <Input onChange={handleInputChange} value={formValues.password} placeholder="password" type="password" required minLength={3} name="password"/>
-            <Input onChange={handleInputChange} value={formValues.confirmPassword} placeholder="confirm password" type="password" required minLength={3} name="confirmPassword"/>
+            <Input onChange={handleInputChange} value={formValues.password} placeholder="password" type="password" required minLength={6} name="password"/>
+            <Input onChange={handleInputChange} value={formValues.confirmPassword} placeholder="confirm password" type="password" required minLength={6} name="confirmPassword"/>
             {!!errorMessage &&
                 <ErrorMessage>
                     {errorMessage}
