@@ -16,6 +16,10 @@ class Firebase {
             this.storage = app.storage();
         }
     }
+
+    async getUserProfile({userId}){
+        return this.db.collection('publicProfiles').where('userId', '==', userId).get();
+    }
     
     async register({email, password}) {
         return this.auth.createUserWithEmailAndPassword(email, password);
