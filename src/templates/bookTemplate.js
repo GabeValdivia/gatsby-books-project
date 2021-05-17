@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from "../components/layout";
 import BookItem from "../components/BookItem";
+import {BookComments} from '../components/common';
 import {graphql} from "gatsby";
 
 const BookTemplate = (props) => {
-    console.log(props.data);
     return(
         <section>
           <BookItem
@@ -12,6 +12,7 @@ const BookTemplate = (props) => {
             authorName={props.data.book.author.name}            
             bookSummary={props.data.book.summary}
             bookTitle={props.data.book.title}/>
+          <BookComments />
         </section>
     )
 
