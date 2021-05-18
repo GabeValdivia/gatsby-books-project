@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {Button} from './Button';
+import {Input} from './Input';
+
+const CommentForm = styled.form `
+    display: flex;
+`;
 
 const CommentListItem = styled.div `
     >strong {
@@ -44,6 +50,12 @@ export const BookComments = ({firebase, bookId}) => {
 
     return(
         <div>
+            <CommentForm>
+                <Input/>
+                <Button>
+                    Post Comment 
+                </Button>
+            </CommentForm>
             {comments.map(comment => (
                 <CommentListItem key={comment.id}>
                     <strong>
