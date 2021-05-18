@@ -33,7 +33,17 @@ export const BookComments = ({firebase, bookId}) => {
 
     return(
         <div>
-            test comments component
+            {comments.map(comment => (
+                <div key={comment.id}>
+                    <strong>
+                        {comment.username}
+                    </strong>
+                    <div>                        
+                        {comment.text}
+                    </div>
+                </div>
+            ))}
+            
         </div>
     )
 }
