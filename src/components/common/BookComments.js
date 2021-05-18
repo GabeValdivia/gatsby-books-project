@@ -1,4 +1,15 @@
 import React, {useEffect, useState} from 'react';
+import styled from 'styled-components';
+
+const CommentListItem = styled.div `
+    >strong {
+        font-size: 80%;
+        color: #666;
+    }
+
+    border-bottom: 1px solid #ddd;
+    padding: 4px 0;
+`;
 
 export const BookComments = ({firebase, bookId}) => {
 
@@ -34,14 +45,14 @@ export const BookComments = ({firebase, bookId}) => {
     return(
         <div>
             {comments.map(comment => (
-                <div key={comment.id}>
+                <CommentListItem key={comment.id}>
                     <strong>
                         {comment.username}
                     </strong>
                     <div>                        
                         {comment.text}
                     </div>
-                </div>
+                </CommentListItem>
             ))}
             
         </div>
