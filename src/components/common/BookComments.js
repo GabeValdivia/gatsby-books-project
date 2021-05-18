@@ -5,6 +5,17 @@ import {Input} from './Input';
 
 const CommentForm = styled.form `
     display: flex;
+    margin-top: 32px;
+
+    ${Input}{
+        margin-right: 8px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    ${Button}{
+        margin: auto 0;
+    }
 `;
 
 const CommentListItem = styled.div `
